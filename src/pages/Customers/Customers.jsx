@@ -1,4 +1,4 @@
-import { Avatar, Space, Table, Typography } from "antd";
+import { Avatar, Space, Table } from "antd";
 import { useEffect, useState } from "react";
 import { getCustomers } from "../../API/db";
 
@@ -17,7 +17,6 @@ export default function Customers(){
 
     return(
         <Space size={20} direction="vertical">
-            <Typography.Title level={4}>Customers</Typography.Title>
             <Table columns={[
                 {
                     title: 'Photo',

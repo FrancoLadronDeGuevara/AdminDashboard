@@ -29,7 +29,7 @@ export default function Dashboard() {
     const [revenue, setRevenue] = useState(0);
 
     useEffect(() => {
-        getOrders().then(res => { 
+        getOrders().then(res => {
             setOrders(res.total)
             setRevenue(res.discountedTotal)
         })
@@ -39,15 +39,14 @@ export default function Dashboard() {
 
     return (
         <>
-            <Space size={20} direction="vertical">
-                <Typography.Title level={4}>Dashboard</Typography.Title>
-                <Space direction="horizontal">
+            <Space size={20} direction="vertical" style={{paddingTop: 5}}>
+                <Space direction="horizontal" className="dashboard-cards">
                     <DashboardCard icon={<ShoppingCartOutlined style={{ color: "green", backgroundColor: "rgba(0,255,0,0.25)", borderRadius: 20, fontSize: 24, padding: 8 }} />} title={"Orders"} value={orders} />
                     <DashboardCard icon={<ShoppingOutlined style={{ color: "blue", backgroundColor: "rgba(0,0,255,0.25)", borderRadius: 20, fontSize: 24, padding: 8 }} />} title={"Inventory"} value={inventory} />
                     <DashboardCard icon={<UserOutlined style={{ color: "purple", backgroundColor: "rgba(0,255,255,0.25)", borderRadius: 20, fontSize: 24, padding: 8 }} />} title={"Customers"} value={customers} />
                     <DashboardCard icon={<DollarCircleOutlined style={{ color: "red", backgroundColor: "rgba(255,0,0,0.25)", borderRadius: 20, fontSize: 24, padding: 8 }} />} title={"Revenue"} value={revenue} />
                 </Space>
-                <Space>
+                <Space className="dashboard-orders-chart">
                     <RecentOrders />
                     <DashboardChart />
                 </Space>
@@ -80,8 +79,8 @@ function RecentOrders() {
     }, [])
 
     return (
-        <>
-            <Typography.Text>Recent Orders</Typography.Text>
+        <div className="recent-orders">
+            <Typography.Text strong>Recent Orders</Typography.Text>
             <Table
                 columns={[
                     {
@@ -104,7 +103,7 @@ function RecentOrders() {
                 dataSource={dataSource}
                 pagination={false}
             ></Table>
-        </>
+        </div>
     )
 }
 
@@ -144,17 +143,16 @@ function DashboardChart() {
             legend: {
                 position: 'bottom',
             },
-            title: {
-                display: true,
-                text: 'Order Revenue',
-            },
         },
     };
 
 
     return (
-        <Card style={{ width: 500, height: 250 }}>
-            <Bar options={options} data={revenueData} />
-        </Card>
+        <div className="chart-revenue">
+            <Typography.Text strong>Order Revenue</Typography.Text>
+            <Card>
+                <Bar options={options} data={revenueData} />
+            </Card>
+        </div>
     );
 }

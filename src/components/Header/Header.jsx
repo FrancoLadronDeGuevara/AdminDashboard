@@ -22,7 +22,7 @@ export default function Header() {
     return (
         <div className="Header">
             <Image width={40} src={userImage} />
-            <Typography.Title>Admin Dashboard</Typography.Title>
+            <Typography.Title className="Header-title">Admin Dashboard</Typography.Title>
             <Space>
                 <Badge count={comments.length} dot>
                     <MailOutlined style={{ fontSize: 24 }} onClick={() => {

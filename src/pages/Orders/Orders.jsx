@@ -1,4 +1,4 @@
-import { Space, Table, Typography } from "antd";
+import { Space, Table } from "antd";
 import { useEffect, useState } from "react";
 import { getOrders } from "../../API/db";
 
@@ -19,7 +19,6 @@ export default function Orders() {
 
     return (
         <Space size={20} direction="vertical">
-            <Typography.Title level={4}>Orders</Typography.Title>
             <Table columns={[
                 {
                     title:"Title",

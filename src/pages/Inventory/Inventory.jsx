@@ -1,4 +1,4 @@
-import { Avatar, Rate, Space, Table, Typography } from "antd";
+import { Avatar, Rate, Space, Table } from "antd";
 import { useEffect, useState } from "react";
 import { getInventory } from "../../API/db";
 
@@ -16,8 +16,7 @@ export default function Inventory(){
     }, [])
 
     return(
-        <Space size={20} direction="vertical">
-            <Typography.Title level={4}>Inventory</Typography.Title>
+        <Space size={20} direction="vertical" style={{width: '80vw'}}>
             <Table columns={[
                 {
                     title: 'Thumbnail',
