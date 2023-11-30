@@ -3,7 +3,7 @@ import { Typography } from "antd";
 export default function Customers(){
     return(
         <>
-        <Typography.Text>Customers</Typography.Text>
+        <Typography.Title level={4}>Customers</Typography.Title>
         </>
     )
 }
